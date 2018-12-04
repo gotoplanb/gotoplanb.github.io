@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <!-- Use Safe PostgreSQL Migrations for dynamic title -->
+  <title>Dave Stanton</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Dave Stanton">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+  <header>
+    <h1>My name is <strong>Dave Stanton</strong></h1>
+
+  </header>
+  <div class="container">
+    <div class="row">
+ <a class="btn btn-default" href="/">< Home</a>
+</div>
+<div class="row">
+ <h1>Safe PostgreSQL Migrations</h1>
+ <div class="text-muted">
+        2016-10-25
+    </div>
+ <p>You never get the database design correct the first time. When it comes times to change the database, you have two paths:</p>
+<ol>
+<li>Drop tables and rebuild</li>
+<li>Migrate</li>
+</ol>
+<h2 id="Drop-tables-and-rebuild"><a href="#Drop-tables-and-rebuild" class="headerlink" title="Drop tables and rebuild"></a>Drop tables and rebuild</h2><p>If you’re early in development, and you are changing the database schema daily, it probably just makes more sense to drop all tables and then recreate.</p>
+<p>My current strategy is to keep a few SQL scripts in the source code repository in <code>sql/</code> folder.</p>
+<h3 id="1-create-tables-sql"><a href="#1-create-tables-sql" class="headerlink" title="1-create-tables.sql"></a><code>1-create-tables.sql</code></h3><ol>
+<li>Drop all tables</li>
+<li>Create tables</li>
+<li>Add columns to tables</li>
+<li>Add constraints to columns except for foreign keys</li>
+</ol>
+<h3 id="2-insert-records-sql"><a href="#2-insert-records-sql" class="headerlink" title="2-insert-records.sql"></a><code>2-insert-records.sql</code></h3><ol>
+<li>Add realistic data the provide a useful starting point for any developer working with this data.</li>
+<li>Add additional realistic data that helps QA regression test tricky scenarios.</li>
+</ol>
+<h3 id="3-foreign-keys-sql"><a href="#3-foreign-keys-sql" class="headerlink" title="3-foreign-keys.sql"></a><code>3-foreign-keys.sql</code></h3><ol>
+<li>Add all foreign-key constraints. You have to add these constraints after you’ve inserted records.</li>
+</ol>
+<h2 id="Migrate"><a href="#Migrate" class="headerlink" title="Migrate"></a>Migrate</h2><p>Database migrations assume you are altering objects that already exist and that you shouldn’t be destroying data.</p>
+<ol>
+<li>Snapshot your database</li>
+<li>Create incrementing SQL scripts</li>
+<li>Run migrations</li>
+</ol>
+<h3 id="Snapshot-your-database"><a href="#Snapshot-your-database" class="headerlink" title="Snapshot your database"></a>Snapshot your database</h3><p>Always snapshot your database before starting a migration unless you want to cry.</p>
+<h3 id="Create-incrementing-SQL-scripts"><a href="#Create-incrementing-SQL-scripts" class="headerlink" title="Create incrementing SQL scripts"></a>Create incrementing SQL scripts</h3><p>Add a SQL script to make each incremental change to the database that you need. Never go backward and modify existing SQL scripts. Also it’s possible that a human modified something directly in a dev database. This is great to keep the team moving, but it’s going to wreak havoc when you have to promote these changes through your delivery pipeline. For extra safety, wrap every kind of creation statement in a conditional check to only execute if the object doesn’t exist. Here are some ways to do this for various types of objects in PostgreSQL:</p>
+<h3 id="Add-columns"><a href="#Add-columns" class="headerlink" title="Add columns"></a>Add columns</h3><p>PostgreSQL 9.6 allows:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ATLER TABLE &lt;table_name&gt; ADD COLUMN IF NOT EXISTS &lt;column_name&gt; &lt;column_type&gt;;</div></pre></td></tr></table></figure>
+<p>If you are using an older version of PostgreSQL, then you can use:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">DO $$</div><div class="line">    BEGIN</div><div class="line">        BEGIN</div><div class="line">            ALTER TABLE &lt;table_name&gt; ADD COLUMN &lt;column_name&gt; &lt;column_type&gt;;</div><div class="line">        EXCEPTION</div><div class="line">            WHEN duplicate_column THEN RAISE NOTICE &apos;column &lt;column_name&gt; already exists in &lt;table_name&gt; table.&apos;;</div><div class="line">        END;</div><div class="line">    END;</div><div class="line">$$;</div></pre></td></tr></table></figure>
+<h3 id="Run-migrations"><a href="#Run-migrations" class="headerlink" title="Run migrations"></a>Run migrations</h3><p>There is probably a go-to migrations library for any framework you are using. When in doubt, go with <a href="https://flywaydb.org/" target="_blank" rel="external">Flyway</a>.</p>
+
+</div>
+
+  </div>
+  <footer>
+    <div>
+  <p>
+    Copyright &copy; 2019
+  </p>
+</div>
+  </footer>
+</body>
+</html>

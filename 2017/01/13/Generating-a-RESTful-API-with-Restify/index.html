@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <!-- Use Generating a RESTful API with Restify for dynamic title -->
+  <title>Dave Stanton</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Dave Stanton">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+  <header>
+    <h1>My name is <strong>Dave Stanton</strong></h1>
+
+  </header>
+  <div class="container">
+    <div class="row">
+ <a class="btn btn-default" href="/">< Home</a>
+</div>
+<div class="row">
+ <h1>Generating a RESTful API with Restify</h1>
+ <div class="text-muted">
+        2017-01-13
+    </div>
+ <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h2><p>We use the magical pg-restify library to auto-discover our database schema and generate RESTful services for all of our tables.</p>
+<p><a href="https://drive.google.com/file/d/0ByuFVgkS5FT6a3diSHExSUQ4RzA/view" target="_blank" rel="external"><img src="video.jpg" alt="Video"></a></p>
+<h2 id="Transcript"><a href="#Transcript" class="headerlink" title="Transcript"></a>Transcript</h2><ol>
+<li>Create a git repository<ol>
+<li>Create a GitHub repository with a README and .gitignore</li>
+<li>Open your terminal</li>
+<li>Clone the repo</li>
+</ol>
+</li>
+<li>Initialize the project with Yarn<ol>
+<li><code>yarn init</code></li>
+<li>v0.0.1</li>
+<li><code>yarn add restify pg-restify</code></li>
+<li><code>&quot;scripts&quot;: { &quot;start&quot; : &quot;node ./index.js&quot;}</code></li>
+</ol>
+</li>
+<li>Connect to Heroku app<ol>
+<li><code>heroku login</code></li>
+<li><code>heroku git:remote -a davedemo-cardset</code></li>
+<li><code>git remote -v</code></li>
+<li><code>heroku config:get DATABASE_URL -s &gt;&gt; .env</code></li>
+<li>add .env to .gitignore</li>
+<li><code>git status</code> to confirm you are ignoring .env</li>
+</ol>
+</li>
+<li>Configure pg-restify<ol>
+<li>Copy example server from <a href="https://www.npmjs.com/package/pg-restify" target="_blank" rel="external">https://www.npmjs.com/package/pg-restify</a></li>
+<li><code>pbpaste &gt; index.js</code></li>
+<li><code>pgConfig: process.env.DATABASE_URL + &#39;?ssl=true&#39;</code></li>
+<li>Run <code>heroku local</code> to export config vars and run this locally</li>
+<li><code>curl http://localhost:8080/api/generic/card</code> to confirm API server is running</li>
+<li>Use Postman to GET a single card</li>
+</ol>
+</li>
+</ol>
+<h2 id="Next-post-in-this-series"><a href="#Next-post-in-this-series" class="headerlink" title="Next post in this series"></a>Next post in this series</h2><p><a href="/2017/01/18/Deploying-the-API/">Deploying the API</a></p>
+
+</div>
+
+  </div>
+  <footer>
+    <div>
+  <p>
+    Copyright &copy; 2019
+  </p>
+</div>
+  </footer>
+</body>
+</html>

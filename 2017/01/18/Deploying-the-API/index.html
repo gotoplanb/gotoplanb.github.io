@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <!-- Use Deploying the API for dynamic title -->
+  <title>Dave Stanton</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Dave Stanton">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+  <header>
+    <h1>My name is <strong>Dave Stanton</strong></h1>
+
+  </header>
+  <div class="container">
+    <div class="row">
+ <a class="btn btn-default" href="/">< Home</a>
+</div>
+<div class="row">
+ <h1>Deploying the API</h1>
+ <div class="text-muted">
+        2017-01-18
+    </div>
+ <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h2><p>Heroku provides easy code deployments.</p>
+<p><a href="https://drive.google.com/file/d/0ByuFVgkS5FT6TWhuTV85NHJTdGM/view" target="_blank" rel="external"><img src="video.jpg" alt="Video"></a></p>
+<h2 id="Transcript"><a href="#Transcript" class="headerlink" title="Transcript"></a>Transcript</h2><ol>
+<li>New Pipeline<ol>
+<li>Same name as your app</li>
+<li>connect to github</li>
+<li>search for your repo and connect</li>
+<li>Click into production stage</li>
+<li>Click deploy tab</li>
+<li>Enable automatic deployments from master</li>
+</ol>
+</li>
+<li>First attempt to deploy to production stage<ol>
+<li>git status and confirm .env is not listed</li>
+<li>git add, commit, push</li>
+<li><code>heroku ps</code> OR <code>heroku ps:scale web=1</code></li>
+<li>Wait for deployment success, try to curl, and be sad. What happened?</li>
+</ol>
+</li>
+<li>Add Papertrail to troublshoot<ol>
+<li><code>heroku addons:create papertrail:choklad</code></li>
+<li>Create  Procfile with contents  web: node index.js since we likely will need in the future</li>
+<li>Git add, commit, push</li>
+<li>Wait for deployment again, and see it still doesn’t work.</li>
+<li>Look at Resources &gt; Papertrail and note problem binding do port</li>
+</ol>
+</li>
+<li>Update index.js to bind to port 5000<ol>
+<li>var port = process.env.PORT || 8080;</li>
+<li>console.log(<code>REST server listening on ${port}</code>);</li>
+<li>server.listen(port);`</li>
+<li>Confirm heroku local still works and you see port 5000 message</li>
+<li>Git add, commit, push</li>
+<li>GET /api/generic/card to confirm it worked</li>
+<li>Look in Papertrail to see API request success</li>
+</ol>
+</li>
+</ol>
+<h2 id="Next-post-in-this-series"><a href="#Next-post-in-this-series" class="headerlink" title="Next post in this series"></a>Next post in this series</h2><p><a href="/2017/01/18/Configuring-a-Delivery-Pipeline/">Configuring a Delivery pipeline</a></p>
+
+</div>
+
+  </div>
+  <footer>
+    <div>
+  <p>
+    Copyright &copy; 2019
+  </p>
+</div>
+  </footer>
+</body>
+</html>

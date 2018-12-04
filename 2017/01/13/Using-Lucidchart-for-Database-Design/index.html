@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <!-- Use Using Lucidchart for Database Design for dynamic title -->
+  <title>Dave Stanton</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Dave Stanton">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+  <header>
+    <h1>My name is <strong>Dave Stanton</strong></h1>
+
+  </header>
+  <div class="container">
+    <div class="row">
+ <a class="btn btn-default" href="/">< Home</a>
+</div>
+<div class="row">
+ <h1>Using Lucidchart for Database Design</h1>
+ <div class="text-muted">
+        2017-01-13
+    </div>
+ <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h2><p>This screencast will give you a quick introduction to database design. We will use Lucidchart as a tool to design a database schema for a set of poker cards.</p>
+<p><a href="https://drive.google.com/file/d/0ByuFVgkS5FT6M3hhRl9yUE1VdEE/view" target="_blank" rel="external"><img src="video.jpg" alt="Video"></a></p>
+<h2 id="Transcript"><a href="#Transcript" class="headerlink" title="Transcript"></a>Transcript</h2><ol>
+<li>Create an account and login to <a href="lucidchart.com">Lucidchart</a></li>
+<li>Explore an example entity relationship diagram<ol>
+<li>Show “manage fields” menu</li>
+<li>Export to SQL</li>
+</ol>
+</li>
+<li>Describe a card set<ol>
+<li>card set is a set of cards of course but what does that mean for the data model</li>
+<li>card</li>
+<li>card_set</li>
+<li>card_set_card</li>
+</ol>
+</li>
+<li>Design Card table<ol>
+<li>Show queen of hearts image</li>
+<li>Create a new ERD object with 3 columns</li>
+<li>Manage fields</li>
+<li>Fields are “name”, “type”, “image”</li>
+<li>We use “type” instead of “suit”. We could use same generalized model for Uno or other cards games as well as flashcards for studying. Discuss the compromise of DSLs/jargon vs generalizing/premature-optimization.</li>
+<li>Types are text, text, text</li>
+<li><a href="https://www.postgresql.org/docs/9.5/static/datatype.html_" target="_blank" rel="external">Refer to Postgres docs</a> for data types</li>
+<li>None of these columns are unique, so get rid of keys</li>
+<li>Add an “id” column of type “serial” and “pk”</li>
+</ol>
+</li>
+<li>Design CardSet table<ol>
+<li>Describe attributes of a card set</li>
+<li>Create a new ERD object</li>
+<li>Fields are “id” serial and “name” text</li>
+</ol>
+</li>
+<li>Design CardSetCard table<ol>
+<li>Describe intersection table for having cards reused in many sets</li>
+<li>Create a new ERD object</li>
+<li>“id” serial , “card_id” integer, “card_set_id” integer</li>
+<li>FK to relate to other tables</li>
+<li>“id” does not need to be a key since we won’t lookup with this column. Still needs to be unique. We’ll add this constraint later.</li>
+<li>Use bigint 8-bit since we won’t increment. Serial is 4-bit unsigned.</li>
+</ol>
+</li>
+<li>Draw key constraints<ol>
+<li>Vertical align the three tables</li>
+<li>Left-align text</li>
+<li>Set same width</li>
+<li>Turn on table coloring</li>
+<li>Draw relationship from PK to FK</li>
+<li>Change to one-to-one relationships</li>
+</ol>
+</li>
+<li>Export to SQL<ol>
+<li>Choose PostgreSQL</li>
+</ol>
+</li>
+<li>Validate SQL<ol>
+<li>Use SQLFiddle</li>
+<li>Choose PostgreSQL</li>
+<li>Build schema</li>
+<li>Save as “1-create-tables.sql”</li>
+</ol>
+</li>
+</ol>
+<h2 id="Next-post-in-this-series"><a href="#Next-post-in-this-series" class="headerlink" title="Next post in this series"></a>Next post in this series</h2><p><a href="/2017/01/13/Getting-Started-with-PostgreSQL-on-Heroku/">Getting Started with PostgreSQL on Heroku</a></p>
+
+</div>
+
+  </div>
+  <footer>
+    <div>
+  <p>
+    Copyright &copy; 2019
+  </p>
+</div>
+  </footer>
+</body>
+</html>

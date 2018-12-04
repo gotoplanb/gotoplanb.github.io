@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <!-- Use Bootstrapping the Database for dynamic title -->
+  <title>Dave Stanton</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Dave Stanton">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+  <header>
+    <h1>My name is <strong>Dave Stanton</strong></h1>
+
+  </header>
+  <div class="container">
+    <div class="row">
+ <a class="btn btn-default" href="/">< Home</a>
+</div>
+<div class="row">
+ <h1>Bootstrapping the Database</h1>
+ <div class="text-muted">
+        2017-01-18
+    </div>
+ <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h2><p>Creating SQL scripts allows you to quickly create new databases and restore the core data necessary for your application to function.</p>
+<p><a href="https://drive.google.com/file/d/0ByuFVgkS5FT6MGx3Q3E3NWpBY0U/view" target="_blank" rel="external"><img src="video.jpg" alt="Video"></a></p>
+<h2 id="Transcript"><a href="#Transcript" class="headerlink" title="Transcript"></a>Transcript</h2><ol>
+<li>Add <code>drop table if exists &quot;card&quot; cascade;</code> statements</li>
+<li>Create 3-add-constraints.sql</li>
+<li>Move the FK stuff</li>
+<li>Rewrite the insert file to remove IDs</li>
+<li>Everything should be lowercase</li>
+<li>Rewrite FK stuff like ALTER TABLE card_set_card ADD FOREIGN KEY (card_id) REFERENCES card(id) ON DELETE CASCADE;</li>
+<li>Run all scripts again until everything passes with no issues</li>
+<li>Capture a backup in the future but assume all necessary data is in your inserts script</li>
+</ol>
+<h2 id="Next-post-in-this-series"><a href="#Next-post-in-this-series" class="headerlink" title="Next post in this series"></a>Next post in this series</h2><p><a href="/2017/01/13/Generating-a-RESTful-API-with-Restify/">Generating a RESTful API with Restify</a></p>
+
+</div>
+
+  </div>
+  <footer>
+    <div>
+  <p>
+    Copyright &copy; 2019
+  </p>
+</div>
+  </footer>
+</body>
+</html>

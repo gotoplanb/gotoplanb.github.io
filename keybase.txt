@@ -1,0 +1,81 @@
+==================================================================
+https://keybase.io/davestanton
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.davestanton.com
+  * I am davestanton (https://keybase.io/davestanton) on keybase.
+  * I have a public key with fingerprint 0BD8 3A7C 2496 7CEA 4485  8D47 33DD E4C1 64C4 0AE0
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01011e09e3fd0c2295e9fbe15972e3acbc13ed3229fe909620c1b8ef73f3795122640a",
+      "fingerprint": "0bd83a7c24967cea44858d4733dde4c164c40ae0",
+      "host": "keybase.io",
+      "key_id": "33dde4c164c40ae0",
+      "kid": "01011e09e3fd0c2295e9fbe15972e3acbc13ed3229fe909620c1b8ef73f3795122640a",
+      "uid": "1ddbed9886a0f0f84ece5b7476cd4300",
+      "username": "davestanton"
+    },
+    "merkle_root": {
+      "ctime": 1543676993,
+      "hash_meta": "e037feba663ae5509d650207b00385dd3e5d239aac1cc2963cc31d5692eb8485",
+      "seqno": 4036733
+    },
+    "revoke": {
+      "sig_ids": [
+        "1f5bab876f3a9b8a3f2842199294a876b332ff6d00005a71e9abcf29a28d97750f"
+      ]
+    },
+    "service": {
+      "hostname": "www.davestanton.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1543677008,
+  "expire_in": 157680000,
+  "prev": "de036d5eb7369c7d70f6a9ad938b01cec8fcf8d1e7424d3e977de4962f93d50b",
+  "seqno": 22,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.80
+Comment: https://keybase.io/crypto
+
+yMK9AnicrZNfaBxFHMcvTUxp8M+RtvTFKm4biOYaZmd2d3ZOCxEtPgmhgSK0xzF/
+fnO33OX23N3c5QyHKYr0oebB9qmoDa2hBW1FhTQg1lgKrU0NNSLBvKgP/isl0gdF
+RYyzR0UFH92XZWe/39/vO5/5zeV7ujN9XTvn3/y59HThYtfSpemJzKFNb4xOWSJU
+LSs/ZVWg84KqgjgpVgJl5S1kI9sGxIBohSTGzAWmBdguoxgIl0LaBBQxPzQwxDyM
+pC180JRoQplrY+w5iFs5Swe1EkT1KKglaVmhfMKpxA7zqATuOL7rK4cSohQ40vYc
+aWyAjLEcxqnDhBM8huEgNGvmo9iJ9x/6/zn3RKecrZQAxXzf40gj7TsgwRXUoZ5U
+DkFp34kYohofB6NWvGEI8loS1qx2zhqHqFKFYhSGScpXJkGqsl2HeNRjjJg98rhc
+HIeEGzMgQjUI7nmEg+sipjwXYUQFQsR3lSLgKkwY59KWEjOPSEls5XoMg/ANRhMl
+hmdroZV3kGlAiEkQQSOsQNo8DkqGXGzlD1q2dgUXPvU04Uz4nGjsO9hmDDOHm2VB
+CNbaU8g8Lqc2MC6kxoxjXzFKXaStQjttFjUC2SmeHtUdBM1mc/gfGIZlOG6C1aMw
+CWVYNYJyktTjfIonadU7DhDFO7WKIqgpMy/G0YAoDgzGvG2U/yJHEfJzFkzWgwiK
+QapwqeenYdM+0EjPwbD0lAuCEo9JqijSHmdcMeILZEuQvpbaVzZQBzsGrNmVmSYz
+DJoR5SLxN0qMTU5eMjUNwBpPJiKw2pcWD/VkuvoyvXdtSi9Spm9L9q/r1X1j88b+
++ZlCfv/h/usvD7y2q3xl63L7ub6ZW5f3rldHpz7OPjw5/WgFP1Ku7p3eeOtIdmEw
+HLNuzX86TJpHb99cPTDZ88o+cbS1kjmbO+H/cSxc/WLw9NKXJyuFHT/o8pnSNy8s
+P7WcGXvs2uny3Kmb7+/YSc498+Kp48ULrd3uE+e/PvKQ9Apb1j87f7XZ++2Ta7O9
+iytVdviDxsWhBxYHR45deH2aWmdmVz6a33j8xrav+JUf3z57YuGnkV33tXf3n5vL
+7nn+neMD62O50aF77e5C99Wl71tr9P6192aHZhZean0nDmz//KTfkx347fe5re9+
+WN/cf/fC6i+lT/ZtPMh+vb30au/2kW3X1w7+CQfogvo=
+=BJ6u
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/davestanton
+
+==================================================================

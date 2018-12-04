@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <!-- Use Configuring a Delivery Pipeline for dynamic title -->
+  <title>Dave Stanton</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Dave Stanton">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+  <header>
+    <h1>My name is <strong>Dave Stanton</strong></h1>
+
+  </header>
+  <div class="container">
+    <div class="row">
+ <a class="btn btn-default" href="/">< Home</a>
+</div>
+<div class="row">
+ <h1>Configuring a Delivery Pipeline</h1>
+ <div class="text-muted">
+        2017-01-18
+    </div>
+ <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h2><p>Heroku Pipelines allow you to setup a continuous delivery pipeline with multiple stages.</p>
+<p><a href="https://drive.google.com/file/d/0ByuFVgkS5FT6eml0Qml4eXVkSFU/view" target="_blank" rel="external"><img src="video.jpg" alt="Video"></a></p>
+<h2 id="Transcript"><a href="#Transcript" class="headerlink" title="Transcript"></a>Transcript</h2><ol>
+<li>git-flow refresher<ol>
+<li>Create develop from master</li>
+<li>Change default branch to develop</li>
+<li>Protect master will all checkboxes except for merge review for admins</li>
+</ol>
+</li>
+<li>Heroku pipeline for development stage<ol>
+<li>Navigate to pipeline</li>
+<li>Create app named davedemo-cardset-develop</li>
+<li>Add to pipeline</li>
+<li>Move to development stage</li>
+<li>Click into app overview</li>
+<li>Add PostgreSQL and Papertrail</li>
+<li>Connect to database and bootstrap database then add another card for testing</li>
+<li>Click to deployment page</li>
+<li>Enable automatic deployment for develop</li>
+<li>Manually deploy from develop</li>
+<li>Click to view the app to be sure it’s running.</li>
+<li>Try /api/generic/card and see data</li>
+<li>Heroku review apps are cool but we will do another time b/c credentials and cost</li>
+<li>Create feature branch</li>
+<li>Add <code>.github/PULL_REQUEST_TEMPLATE.md</code> to feature then PR to  develop</li>
+<li>Rebase, merge, delete</li>
+<li>PR from develop to master with squash v0.0.1 and describe semver and changelog message</li>
+<li>Verify deployment in browser and in Heroku overview</li>
+</ol>
+</li>
+<li>Heroku pipeline for staging stag<ol>
+<li>Repeat steps like setting up development stage</li>
+<li>Enable automatic deployments from master</li>
+<li>Go into production app and remove automatic deployment</li>
+</ol>
+</li>
+</ol>
+<h2 id="Next-post-in-this-series"><a href="#Next-post-in-this-series" class="headerlink" title="Next post in this series"></a>Next post in this series</h2><p><a href="/2017/01/18/Organizing-the-Project-Folder/">Organizing Your Project Folder</a></p>
+
+</div>
+
+  </div>
+  <footer>
+    <div>
+  <p>
+    Copyright &copy; 2019
+  </p>
+</div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  <!-- Use Documenting Your API for dynamic title -->
+  <title>Dave Stanton</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Dave Stanton">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://fonts.googleapis.com/css?family=Roboto+Slab:400,300" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/base.css">
+</head>
+<body>
+  <header>
+    <h1>My name is <strong>Dave Stanton</strong></h1>
+
+  </header>
+  <div class="container">
+    <div class="row">
+ <a class="btn btn-default" href="/">< Home</a>
+</div>
+<div class="row">
+ <h1>Documenting Your API</h1>
+ <div class="text-muted">
+        2017-01-30
+    </div>
+ <h2 id="tl-dr"><a href="#tl-dr" class="headerlink" title="tl;dr"></a>tl;dr</h2><p>Apiary provides a web-based editor, viewer, and mocking server for your API documentation.</p>
+<p><a href="https://drive.google.com/file/d/0ByuFVgkS5FT6WndJUlJRakR0TWc/view" target="_blank" rel="external"><img src="video.jpg" alt="Video"></a></p>
+<h2 id="Transcript"><a href="#Transcript" class="headerlink" title="Transcript"></a>Transcript</h2><ol>
+<li>Create Apiary Blueprint<ol>
+<li>Create account</li>
+<li>Create new Blueprint named “cardset”</li>
+<li>Describe Blueprint format<ol>
+<li>Format</li>
+<li>Host</li>
+<li>Markdown-like</li>
+</ol>
+</li>
+<li>Use Apiary console to hit blueprint</li>
+<li>Describe other Apiary features<ol>
+<li>Documentation</li>
+<li>Inspector</li>
+<li>Tests</li>
+<li>Team</li>
+<li>Settings<ol>
+<li>CORS</li>
+<li>Proxy</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Rewrite for cardset collections<ol>
+<li>Define headings for the card collection (get, post) and a card resource (get, put, delete)</li>
+<li>Define attributes for an object in the card collection</li>
+<li>Use attribute response for getting the card collection<ol>
+<li>Return an array of card objects</li>
+<li>Response will be empty the first time. Rename the collection</li>
+<li>Response now has data.</li>
+<li>Include three card objects in the response. Sorry they are duplicates.</li>
+<li>You can define custom objects if you need variety, but we can use pg-restify for this.</li>
+</ol>
+</li>
+<li>Define the POST /card service<ol>
+<li>We do not include id since database will determine value</li>
+<li>Optional attributes should be indicated. Apiary will not enforce.</li>
+</ol>
+</li>
+<li>Define the /card/{id} services<ol>
+<li>Define parameters. Use backticks for example values.</li>
+<li>Define GET method.</li>
+<li>Define PUT method. Same as POST but with 200.</li>
+<li>Define DELETE method. Just a 200.</li>
+</ol>
+</li>
+<li>Document should now be valid<ol>
+<li>Sometimes highlighting is weird because of extra space</li>
+</ol>
+</li>
+<li>Comments<ol>
+<li>dash for attributes</li>
+<li>ellipses for a parameters</li>
+</ol>
+</li>
+<li>Export Apiary Blueprint<ol>
+<li>Copy/paste is simple. Save in your docs folder.</li>
+<li>Atom package for validating blueprints.</li>
+<li>GitHub sync is possible, but I prefer not to use.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Define card-set collection<ol>
+<li>Duplicate your card stuff and rename object to card-set</li>
+<li>Update attributes to only be name</li>
+</ol>
+</li>
+<li>Define card-set-card collection<ol>
+<li>Duplicate your card stuff and rename object to card-set</li>
+<li>Update attributes</li>
+<li>Describe what REST for this collection does in reality — add a card to a deck type or remove from a card set type</li>
+<li>Remove unnecessary PUT and GET methods for a card set card resource</li>
+<li>Use GET in Postman to see all card set card records This will become a scaling problem.</li>
+</ol>
+</li>
+<li>Optional parameters for pagination<ol>
+<li>Add orderBy as an optional parameter for card-set-card collection. Look at pg-restify docs to copy/paste.</li>
+<li>Add the other optional parameters.</li>
+<li>This gets a bit gross and repetitive, so let’s move to the Introduction section. Modify formatting.</li>
+<li>Remove optional parameters from the card-set-card collection docs</li>
+<li>Apiary often gets slow, so you can edit this stuff in Atom.<ol>
+<li>api-blueprint-preview<ol>
+<li>npm install -g aglio</li>
+<li>ctrl+shift+a</li>
+</ol>
+</li>
+<li>language-api-blueprint</li>
+<li>linter-api-blueprint</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Put your blueprint into your server repository docs folder</li>
+<li>Try some requests with Postman<ol>
+<li>Use heroku local or use your deployed services</li>
+<li>orderByDesc=true</li>
+<li>pageSize=2</li>
+<li>pageSize=2&amp;page=2</li>
+</ol>
+</li>
+</ol>
+
+</div>
+
+  </div>
+  <footer>
+    <div>
+  <p>
+    Copyright &copy; 2019
+  </p>
+</div>
+  </footer>
+</body>
+</html>
